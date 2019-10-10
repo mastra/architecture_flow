@@ -9,10 +9,12 @@ data class Note(
     var id : Int,
     var title :String?,
     var descripcion : String?,
-    var priority : Int
+    var priority : Int = 0
 ) {
 
+    constructor( t: String, d:String) : this(0, t, d, 0) {
 
+    }
 
 }
 
