@@ -12,7 +12,7 @@ abstract class NoteDatabase : RoomDatabase() {
         var instance : NoteDatabase? = null
 
         fun getInstance(context: Context) : NoteDatabase {
-            if (instance==null ) {
+            return instance ?:
                 synchronized(this) {
                     val i = Room.databaseBuilder(
                         context.applicationContext, NoteDatabase::class.java, "note_databse"
@@ -20,8 +20,6 @@ abstract class NoteDatabase : RoomDatabase() {
                     instance = i
                     return i
                 }
-            }
-            return instance!!
         }
     }
 
