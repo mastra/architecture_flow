@@ -16,7 +16,8 @@ abstract class NoteDatabase : RoomDatabase() {
                 synchronized(this) {
                     val i = Room.databaseBuilder(
                         context.applicationContext, NoteDatabase::class.java, "note_databse"
-                    ).build()
+                        ).fallbackToDestructiveMigration()
+                        .build()
                     instance = i
                     return i
                 }
